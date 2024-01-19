@@ -145,7 +145,7 @@ function binarySearch(list, dato, pivot) {
 }
 
 
-list = [3,1,2,5,6,4,2,1,2,3,6,8];
+list = [3,1,2,5,6,4,2,1,2,3,6,7];
 pivot = list[(list.length/2)+1];
 let esta = binarySearch(list,parseInt(prompt("ingresa un numero:")),pivot);
 if(esta==true)
