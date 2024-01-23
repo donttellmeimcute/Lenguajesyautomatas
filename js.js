@@ -182,3 +182,7 @@ class Animal
         document.write(`Tengo el color: ${this.color} con tamaño: ${this.tamaño}`);
     }
 }
+
+let vaca = new Animal("rojo",3);
+
+vaca.existir();
