@@ -119,13 +119,13 @@ linealSearch(list,parseInt(prompt("Pon un numero a buscar:")));
 
 function binarySearch(list, dato, pivot) {
     list = quickSort(list);
-    if (pivot == dato) {
+    if (pivot === dato) {
         return true;
     }
-    if (dato == list[list.length]) {
+    if (dato === list[list.length]) {
         return true;
     }
-    if (dato == list[0]) {
+    if (dato === list[0]) {
         return true;
     }
     if (dato < pivot) {
@@ -155,4 +155,3 @@ if(esta==true)
 else{
     alert("no esta en la lista");
 }
-
