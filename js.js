@@ -179,6 +179,6 @@ class Animal
     }
     existir()
     {
-        document.write('Tengo el color, ${this.color} con tamaño: ${this.tamaño}');
+        document.write(`Tengo el color: ${this.color} con tamaño: ${this.tamaño}`);
     }
 }
