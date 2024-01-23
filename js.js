@@ -114,7 +114,7 @@ list = [1,5,4,3,2,1,6,7,9,6];
 linealSearch(list,parseInt(prompt("Pon un numero a buscar:")));
 
 */
-
+/*
 //Algoritmo 2: busqueda binaria
 
 function binarySearch(list, dato, pivot) {
@@ -154,4 +154,31 @@ if(esta==true)
 }
 else{
     alert("no esta en la lista");
+}
+
+*/
+
+//poo
+
+//clases
+
+class Animal
+{
+    constructor(color,tamaño)
+    {
+        this.color=color
+        this.tamaño = tamaño
+    }
+    comer()
+    {
+        document.write("Estoy comiendo");
+    }
+    mover()
+    {
+        document.write("me estoy moviendo");
+    }
+    existir()
+    {
+        document.write('Tengo el color, ${this.color} con tamaño: ${this.tamaño}');
+    }
 }
