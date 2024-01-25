@@ -222,6 +222,10 @@ class calculadora
     division(dat1,dat2)
     {
         let res = dat1 / dat2;
+        if(dat2 ===0)
+        {
+            return alert("no se puede divir entre 0");
+        }
         return alert(res);
     }
 }
