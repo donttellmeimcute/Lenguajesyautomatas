@@ -245,7 +245,7 @@ if(decision===2)
 */
 
 //programa 2
-
+/*
 class Saludos
 {
     constructor(nombre)
@@ -261,3 +261,28 @@ class Saludos
 let nombre = prompt("Ingresa tu nombre")
 let persona = new Saludos(nombre);
 persona.saludar(nombre);
+*/
+
+//programa 3
+
+class calculadora
+{
+    constructor(lista)
+    {
+        this.lista = lista;
+    }
+    media(lista)
+    {
+        let temp = 0;
+        for(let e of lista)
+        {
+            temp = e + temp
+            
+        }
+        return alert(temp/lista.length);
+    }
+}
+
+let list = [1,4,3,2,5,7];
+let promedio = new calculadora(list);
+promedio.media(list);
