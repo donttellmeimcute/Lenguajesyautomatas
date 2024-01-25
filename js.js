@@ -186,3 +186,19 @@ class Animal
 let vaca = new Animal("rojo",3);
 
 vaca.existir();
+
+//herencia js
+
+class perro extends Animal
+{
+    constructor(tamaño,raza)
+    {
+        super(tamaño);
+        this.raza = raza;
+        
+    }
+    ladrar()
+    {
+        document.write("guau");
+    }
+}
