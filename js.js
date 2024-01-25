@@ -206,7 +206,7 @@ class perro extends Animal
 */
 
 //programa 1
-
+/*
 class calculadora
 {
     constructor(dato1,dato2)
@@ -242,3 +242,22 @@ if(decision===2)
 {
     calculadora1.division(data1,data2);
 }
+*/
+
+//programa 2
+
+class Saludos
+{
+    constructor(nombre)
+    {
+        this.nombre = nombre
+    }
+    
+    saludar()
+    {
+        alert(`Hola: ${this.nombre}`);
+    }
+}
+let nombre = prompt("Ingresa tu nombre")
+let persona = new Saludos(nombre);
+persona.saludar(nombre);
