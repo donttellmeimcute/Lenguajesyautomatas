@@ -161,7 +161,7 @@ else{
 //poo
 
 //clases
-
+/*
 class Animal
 {
     constructor(color,tamaño)
@@ -202,3 +202,6 @@ class perro extends Animal
         document.write("guau");
     }
 }
+
+*/
+
