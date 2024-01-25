@@ -288,7 +288,7 @@ let list = [1,4,3,2,5,7];
 let promedio = new calculadora(list);
 promedio.media(list);
 */
-
+/*
 //programa 4
 class calculadora
 {
@@ -320,3 +320,4 @@ class Polinomio extends calculadora
 let dato3 =parseFloat(prompt("dato bias"))
 let poli = new Polinomio(dato1,dato2,dato3);
 poli.resolucion(dato1,dato2,dato3);
+*/
