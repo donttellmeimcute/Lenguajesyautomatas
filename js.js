@@ -205,3 +205,36 @@ class perro extends Animal
 
 */
 
+//programa 1
+
+class calculadora
+{
+    constructor(dato1,dato2)
+    {
+        this.dato1 = dato1;
+        this.dato2 = dato2;
+    }
+    suma(dat1,dat2)
+    {
+        let res = dat1 + dat2
+        return alert(res);
+    }
+    division(dat1,dat2)
+    {
+        let res = dat1 / dat2;
+        return alert(res);
+    }
+}
+
+let data1 = parseFloat(prompt("ingresa un numero"));
+let data2 = parseFloat(prompt("ingresa otro dato"));
+let decision = parseInt(prompt("que quieres hacer? 1(sumar) 2(divir)"));
+let calculadora1 = new calculadora(data1,data2);
+if(decision===1)
+{
+    calculadora1.suma(data1,data2);
+}
+if(decision===2)
+{
+    calculadora1.division(data1,data2);
+}
