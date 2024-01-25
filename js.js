@@ -230,8 +230,9 @@ class calculadora
     }
 }
 
-let data1 = parseFloat(prompt("ingresa un numero"));
-let data2 = parseFloat(prompt("ingresa otro dato"));
+let data1 = parseFloat(prompt("ingresa el cuadrado"));
+let data2 = parseFloat(prompt("ingresa el x"));
+let data3 = parseFloat(prompt("ingresa el dato bias: "))
 let decision = parseInt(prompt("que quieres hacer? 1(sumar) 2(divir)"));
 let calculadora1 = new calculadora(data1,data2);
 if(decision===1)
@@ -264,7 +265,7 @@ persona.saludar(nombre);
 */
 
 //programa 3
-
+/*
 class calculadora
 {
     constructor(lista)
@@ -274,15 +275,48 @@ class calculadora
     media(lista)
     {
         let temp = 0;
-        for(let e of lista)
+        for(let e of this.lista)
         {
             temp = e + temp
             
         }
-        return alert(temp/lista.length);
+        return alert(temp/this.lista.length);
     }
 }
 
 let list = [1,4,3,2,5,7];
 let promedio = new calculadora(list);
 promedio.media(list);
+*/
+
+//programa 4
+class calculadora
+{
+    constructor(dato1,dato2)
+    {
+        this.dato1=dato1;
+        this.dato2=dato2;
+    }
+
+}
+let dato1 =parseFloat(prompt("dato x2"))
+let dato2 = parseFloat(prompt("dato x"))
+class Polinomio extends calculadora
+{
+    constructor(dato1,dato2,dato3)
+    {
+        super(dato1,dato2)
+        this.dato3 = dato3;
+
+    }
+    resolucion(dato1,dato2,dato3)
+    {
+        let raiz = Math.sqrt((dato2*dato2)-(4*dato1*dato3))
+        let xUno = ((-dato2)+raiz)/(2*dato1)
+        let xDos = ((-dato2)-raiz)/(2*dato1)
+        return alert(`las soluciones son xUno: ${xUno}, xDos ${xDos}`);
+    }
+}
+let dato3 =parseFloat(prompt("dato bias"))
+let poli = new Polinomio(dato1,dato2,dato3);
+poli.resolucion(dato1,dato2,dato3);
