@@ -30,4 +30,3 @@ Teoria de grafos
         Grafo que es conexo pero no ciclico.
     
         */
-    
