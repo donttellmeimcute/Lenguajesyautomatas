@@ -54,15 +54,21 @@ class Grafo {
 
 const grafo = new Grafo();
 
-grafo.agregarVertice("A");
-grafo.agregarVertice("B");
-grafo.agregarVertice("C");
-grafo.agregarVertice("D");
-grafo.agregarVertice("E");
+const cantidadVertices = prompt("Ingrese la cantidad de vértices:");
 
-grafo.agregarArista("A", "B", 2);
-grafo.agregarArista("A", "C", 3);
-grafo.agregarArista("B", "C", 1);
+for (let i = 0; i < cantidadVertices; i++) {
+  const vertice = prompt(`Ingrese el vértice ${i + 1}:`);
+  grafo.agregarVertice(vertice);
+}
+
+const cantidadAristas = prompt("Ingrese la cantidad de aristas:");
+
+for (let i = 0; i < cantidadAristas; i++) {
+  const vertice1 = prompt(`Ingrese el vértice 1 de la arista ${i + 1}:`);
+  const vertice2 = prompt(`Ingrese el vértice 2 de la arista ${i + 1}:`);
+  const peso = prompt(`Ingrese el peso de la arista ${i + 1}:`);
+  grafo.agregarArista(vertice1, vertice2, peso);
+}
 
 const matriz = grafo.obtenerMatriz();
 console.log(matriz);
