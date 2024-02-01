@@ -42,8 +42,10 @@ class ColaPrioridad {
 
 function dijkstra(grafo, inicio) {
     let distancias = {};
+    let previos = {}; 
     for (let vertice in grafo) {
         distancias[vertice] = Infinity;
+        previos[vertice] = null;
     }
     distancias[inicio] = 0;
 
@@ -60,12 +62,23 @@ function dijkstra(grafo, inicio) {
 
             if (distanciaTotal < distancias[vecino]) {
                 distancias[vecino] = distanciaTotal;
+                previos[vecino] = nodoActual; 
                 colaprior.ponerEnCola([vecino, distanciaTotal]);
             }
         }
     }
 
-    return distancias;
+    return { distancias, previos }; 
+}
+
+function reconstruirCamino(previos, inicio, fin) {
+    let camino = [];
+    let actual = fin;
+    while (actual !== null) {
+        camino.unshift(actual);
+        actual = previos[actual];
+    }
+    return camino;
 }
 
 let grafo = {
@@ -77,4 +90,11 @@ let grafo = {
     'F': { 'C': 1, 'E': 3 }
 };
 
-console.log(dijkstra(grafo, prompt("ingresa que vertice quieres tener como inicial.")));
+let inicio = prompt("Ingresa qué vértice quieres tener como inicial.");
+let fin = prompt("Ingresa qué vértice quieres tener como final.");
+
+let { distancias, previos } = dijkstra(grafo, inicio);
+let camino = reconstruirCamino(previos, inicio, fin);
+
+console.log("Distancias:", distancias);
+console.log("Camino más corto:", camino);
