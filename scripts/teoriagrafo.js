@@ -29,4 +29,8 @@ Teoria de grafos
 
         Grafo que es conexo pero no ciclico.
     
+        
+
+    Algoritmo 1: encontrar un circuito cerrado
+    
         */
