@@ -68,7 +68,7 @@ function dijkstra(grafo, inicio) {
         }
     }
 
-    return { distancias, previos }; 
+    return {distancias, previos}; 
 }
 
 function reconstruirCamino(previos, inicio, fin) {
