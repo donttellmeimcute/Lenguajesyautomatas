@@ -3,15 +3,17 @@ class Grafo {
     this.vertices = new Set();
     this.aristas = new Set();
     this.adyacencia = {};
+    this.pesos = {};
   }
 
   agregarVertice(vertice) {
     this.vertices.add(vertice);
   }
 
-  agregarArista(vertice1, vertice2) {
+  agregarArista(vertice1, vertice2, peso) {
     this.aristas.add([vertice1, vertice2]);
     this.actualizarAdyacencia(vertice1, vertice2);
+    this.actualizarPesos(vertice1, vertice2, peso);
   }
 
   actualizarAdyacencia(vertice1, vertice2) {
@@ -25,6 +27,11 @@ class Grafo {
     this.adyacencia[vertice2].push(vertice1);
   }
 
+  actualizarPesos(vertice1, vertice2, peso) {
+    const arista = [vertice1, vertice2].sort().join("-");
+    this.pesos[arista] = peso;
+  }
+
   obtenerMatriz() {
     const vertices = Array.from(this.vertices);
     const matriz = [];
@@ -33,7 +40,8 @@ class Grafo {
       matriz[i] = [];
       for (let j = 0; j < vertices.length; j++) {
         if (this.adyacencia[vertices[i]] && this.adyacencia[vertices[i]].includes(vertices[j])) {
-          matriz[i][j] = 1;
+          const arista = [vertices[i], vertices[j]].sort().join("-");
+          matriz[i][j] = this.pesos[arista] || 1;
         } else {
           matriz[i][j] = 0;
         }
@@ -52,9 +60,9 @@ grafo.agregarVertice("C");
 grafo.agregarVertice("D");
 grafo.agregarVertice("E");
 
-grafo.agregarArista("A", "B");
-grafo.agregarArista("A", "C");
-grafo.agregarArista("B", "C");
+grafo.agregarArista("A", "B", 2);
+grafo.agregarArista("A", "C", 3);
+grafo.agregarArista("B", "C", 1);
 
 const matriz = grafo.obtenerMatriz();
 console.log(matriz);
