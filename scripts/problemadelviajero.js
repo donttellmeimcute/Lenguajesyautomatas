@@ -82,12 +82,12 @@ function reconstruirCamino(previos, inicio, fin) {
 }
 
 let grafo = {
-    'A': { 'B': 1, 'C': 4 },
-    'B': { 'A': 1, 'D': 2, 'E': 5 },
-    'C': { 'A': 4, 'F': 1 },
-    'D': { 'B': 2, 'E': 1 },
-    'E': { 'B': 5, 'D': 1, 'F': 3 },
-    'F': { 'C': 1, 'E': 3 }
+    'A': { 'D': 10, 'B': 3, 'C':3 },
+    'B': { 'A': 3, 'C': 1, 'E': 1 },
+    'C': { 'A': 3, 'B': 1,'E':2,'D':1, },
+    'D': { 'A': 20, 'C': 1, 'E':2 },
+    'E': { 'B': 1, 'C': 2, 'F': 1 },
+    'F': { 'D': 2, 'E':1 }
 };
 
 let inicio = prompt("Ingresa qué vértice quieres tener como inicial.");
