@@ -1,50 +1,53 @@
-function calcularDistancia(nodoA, nodoB) {
-    const dx = nodoA[0] - nodoB[0];
-    const dy = nodoA[1] - nodoB[1];
-    return Math.sqrt(dx * dx + dy * dy);
-}
-
 function aEstrella(grafico, inicio, objetivo) {
-    const nodosEvaluados = new Set();
-    const nodosPorEvaluar = new Set([inicio]);
+    const nodosEvaluados = {};
+    const nodosPorEvaluar = {};
+    nodosPorEvaluar[inicio] = true;
     const padres = {};
     const costoHastaAhora = {};
     costoHastaAhora[inicio] = 0;
 
-    while (nodosPorEvaluar.size > 0) {
+    while (true) {
         let nodoActual = null;
         let costoEstimado = Infinity;
-        nodosPorEvaluar.forEach(nodo => {
+        for (let nodo in nodosPorEvaluar) {
             if (costoHastaAhora[nodo] + calcularDistancia(nodo, objetivo) < costoEstimado) {
                 nodoActual = nodo;
                 costoEstimado = costoHastaAhora[nodo] + calcularDistancia(nodo, objetivo);
             }
-        });
+        }
+
+        if (nodoActual === null) {
+            return []; // No hay camino
+        }
 
         if (nodoActual === objetivo) {
-            const camino = [objetivo];
-            while (padres[camino[0]]) {
-                camino.unshift(padres[camino[0]]);
+            const caminoInverso = [];
+            while (nodoActual) {
+                caminoInverso.push(nodoActual);
+                nodoActual = padres[nodoActual];
+            }
+            const camino = [];
+            const longitud = caminoInverso.length;
+            for (let i = longitud - 1; i >= 0; i--) {
+                camino.push(caminoInverso[i]);
             }
             return camino;
         }
 
-        nodosPorEvaluar.delete(nodoActual);
-        nodosEvaluados.add(nodoActual);
+        delete nodosPorEvaluar[nodoActual];
+        nodosEvaluados[nodoActual] = true;
 
         for (let vecino in grafico[nodoActual]) {
-            if (!nodosEvaluados.has(vecino)) {
+            if (!nodosEvaluados[vecino]) {
                 const nuevoCosto = costoHastaAhora[nodoActual] + grafico[nodoActual][vecino];
                 if (!costoHastaAhora[vecino] || nuevoCosto < costoHastaAhora[vecino]) {
                     costoHastaAhora[vecino] = nuevoCosto;
                     padres[vecino] = nodoActual;
-                    nodosPorEvaluar.add(vecino);
+                    nodosPorEvaluar[vecino] = true;
                 }
             }
         }
     }
-
-    return [];
 }
 
 const grafo = {
