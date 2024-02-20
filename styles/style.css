@@ -1,0 +1,12 @@
+body {
+  background-color: rgb(1, 1, 1);
+}
+
+#guardar {
+    color: white;
+    align-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

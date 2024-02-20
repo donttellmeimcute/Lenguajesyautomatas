@@ -1,8 +1,18 @@
 <!DOCTYPE html>
 <head>
-    <title>Pagina Web</title>
+    <title>Login</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="./scripts/script.js"></script>
 </head>
 <body>
-<script src="scripts/problemadelviajero.js"></script>
+<form id="guardar" action="#" onsubmit="guardar()">
+    <label for="nombre">Username:</label>
+    <input type="text" id="usuario" name="user" required>
+    <br>
+    <label for="email">Password:</label>
+    <input type="password" id="pass" name="pass" required>
+    <br>
+    <input type="submit" value="Login">
+</form>
 </body>
 </html>

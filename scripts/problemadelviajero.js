@@ -39,10 +39,11 @@ class ColaPrioridad {
         return this.coleccion.length === 0;
     }
 }
-
-function dijkstra(grafo, inicio) {
+//4.- Definir la funcion
+function caminocorto(grafo, inicio) {
     let distancias = {};
     let previos = {}; 
+    //5.-definir distancias de los vertices
     for (let vertice in grafo) {
         distancias[vertice] = Infinity;
         previos[vertice] = null;
@@ -55,11 +56,11 @@ function dijkstra(grafo, inicio) {
     while (!colaprior.estaVacia()) {
         let pasoMasCorto = colaprior.quitarDeLaCola();
         let nodoActual = pasoMasCorto[0];
-
+//6.-checar los vecinos (nodo padre(de donde viene) , distancia )
         for (let vecino in grafo[nodoActual]) {
             let distanciaVecino = grafo[nodoActual][vecino];
             let distanciaTotal = distanciaVecino + pasoMasCorto[1];
-
+//7.-comparacion distancias vecinos
             if (distanciaTotal < distancias[vecino]) {
                 distancias[vecino] = distanciaTotal;
                 previos[vecino] = nodoActual; 
@@ -67,20 +68,22 @@ function dijkstra(grafo, inicio) {
             }
         }
     }
-
+//8.-regresa la lista de distancia, padre
     return {distancias, previos}; 
 }
+//se hace hasta llegar al final
 
+//imprimir camino
 function reconstruirCamino(previos, inicio, fin) {
     let camino = [];
     let actual = fin;
     while (actual !== null) {
-        camino.unshift(actual);
+        camino.push(actual);
         actual = previos[actual];
     }
     return camino;
 }
-
+//1-definir grafo
 let grafo = {
     'A': { 'E':1, 'B': 4, 'C':3 },
     'B': { 'A': 4, 'C': 7, 'D': 1 },
@@ -89,12 +92,12 @@ let grafo = {
     'E': { 'A': 1, 'C': 2, 'F': 5 },
     'F': { 'D': 2, 'E':5 }
 };
-
+//2.definir inicio / final
 let inicio = prompt("Ingresa qué vértice quieres tener como inicial.");
 let fin = prompt("Ingresa qué vértice quieres tener como final.");
-
-let { distancias, previos } = dijkstra(grafo, inicio);
+//3.-llamar funciones y mandar los parametros anteriores
+let { distancias, previos } = caminocorto(grafo, inicio);
 let camino = reconstruirCamino(previos, inicio, fin);
-
+//imprimir las distancias y el camino
 console.log("Distancias:", distancias);
 console.log("Camino más corto:", camino);
